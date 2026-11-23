@@ -1,0 +1,9 @@
+boutique_id,boutique_name,city,country,region
+B01,Maison Aurelle Monte-Carlo,Monaco,Monaco,Europe
+B02,Maison Aurelle Paris Faubourg,Paris,France,Europe
+B03,Maison Aurelle Cannes Croisette,Cannes,France,Europe
+B04,Maison Aurelle Milano Montenapoleone,Milan,Italy,Europe
+B05,Maison Aurelle London Bond Street,London,United Kingdom,Europe
+B06,Maison Aurelle Dubai Mall,Dubai,United Arab Emirates,Middle East
+B07,Maison Aurelle New York Madison,New York,United States,Americas
+B08,Maison Aurelle Online,Online,Online,Online

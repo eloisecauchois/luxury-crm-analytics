@@ -1,0 +1,42 @@
+table boutiques
+	lineageTag: a4cb6d9b-9ad4-42e8-af57-962246114cf0
+
+	column boutique_id
+		dataType: string
+		lineageTag: aa9622a7-7726-48b3-9077-25ef97edf9cf
+		summarizeBy: none
+		sourceColumn: boutique_id
+
+	column boutique_name
+		dataType: string
+		lineageTag: 837ceb2e-fded-495d-a33a-e9995d53235c
+		summarizeBy: none
+		sourceColumn: boutique_name
+
+	column city
+		dataType: string
+		lineageTag: ffd70a5b-3027-4859-9ccf-834f94fa9d46
+		summarizeBy: none
+		sourceColumn: city
+
+	column country
+		dataType: string
+		lineageTag: e7bf84d9-5320-4889-b9d5-42b61cae3520
+		summarizeBy: none
+		sourceColumn: country
+
+	column region
+		dataType: string
+		lineageTag: 90ce8835-d90a-443e-81a1-9ddceca253a5
+		summarizeBy: none
+		sourceColumn: region
+
+	partition boutiques = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\data\boutiques.csv"), [Delimiter = ",", Columns = 5, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"boutique_id", type text}, {"boutique_name", type text}, {"city", type text}, {"country", type text}, {"region", type text}}, "en-US")
+				in
+				    Typed

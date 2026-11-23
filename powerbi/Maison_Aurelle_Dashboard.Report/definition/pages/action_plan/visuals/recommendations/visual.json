@@ -1,0 +1,165 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "recommendations",
+  "position": {
+    "x": 844,
+    "y": 195,
+    "z": 27000,
+    "width": 416,
+    "height": 250,
+    "tabOrder": 27000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommendations",
+                    "textStyle": {
+                      "fontFamily": "Georgia",
+                      "fontSize": "14pt",
+                      "color": "#14213D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1. Win back 270 high-value At-Risk clients",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  },
+                  {
+                    "value": " through their own sales associate and preferred channel.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. Protect the VIC circle",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  },
+                  {
+                    "value": ": dedicated associate, early access, Riviera events.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3. Design the second-purchase journey",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  },
+                  {
+                    "value": ": 7 days, 3 months, 6 months.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "4. Offer private appointments",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  },
+                  {
+                    "value": " to Loyal clients (+48% ticket).",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "5. Cross-sell from leather goods",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  },
+                  {
+                    "value": " into accessories and ready-to-wear.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#1B1B1B"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FCFCFB'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

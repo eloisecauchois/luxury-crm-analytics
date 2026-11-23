@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "kpi_atriskspend",
+  "position": {
+    "x": 333,
+    "y": 80,
+    "z": 22000,
+    "width": 300,
+    "height": 100,
+    "tabOrder": 22000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "At Risk Past Spend"
+                }
+              },
+              "queryRef": "rfm.At Risk Past Spend",
+              "nativeQueryRef": "At Risk Past Spend"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Past spend of At-Risk clients'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

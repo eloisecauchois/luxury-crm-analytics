@@ -1,0 +1,110 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "bar_xsell",
+  "position": {
+    "x": 432,
+    "y": 195,
+    "z": 26000,
+    "width": 400,
+    "height": 250,
+    "tabOrder": 26000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cross_sell"
+                    }
+                  },
+                  "Property": "also_bought"
+                }
+              },
+              "queryRef": "cross_sell.also_bought",
+              "nativeQueryRef": "also_bought"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cross_sell"
+                    }
+                  },
+                  "Property": "Share of Leather Buyers"
+                }
+              },
+              "queryRef": "cross_sell.Share of Leather Buyers",
+              "nativeQueryRef": "Share of Leather Buyers"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "cross_sell"
+                  }
+                },
+                "Property": "Share of Leather Buyers"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'What leather goods clients also buy'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+table clients
+	lineageTag: 2de6031c-2989-493b-9610-a62c3de9b443
+
+	column client_id
+		dataType: string
+		lineageTag: ecf375cf-e7ce-4648-9cf2-3aa95d82ed1f
+		summarizeBy: none
+		sourceColumn: client_id
+
+	column gender
+		dataType: string
+		lineageTag: 41eeb3b7-b515-4e5b-9e80-ecdf833afdcc
+		summarizeBy: none
+		sourceColumn: gender
+
+	column age_group
+		dataType: string
+		lineageTag: 57c2abf8-9b26-4af6-a859-bc1498908ba1
+		summarizeBy: none
+		sourceColumn: age_group
+
+	column nationality
+		dataType: string
+		lineageTag: 3fabdbdd-1f7f-4ce4-af4d-ce82b91cbac2
+		summarizeBy: none
+		sourceColumn: nationality
+
+	column home_boutique_id
+		dataType: string
+		lineageTag: 16e57b18-f2af-4d03-aecf-8ab0392bdfc1
+		summarizeBy: none
+		sourceColumn: home_boutique_id
+
+	column signup_date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: bd02f37d-21d4-4ac5-b46b-3672c90b5f01
+		summarizeBy: none
+		sourceColumn: signup_date
+
+	column preferred_contact
+		dataType: string
+		lineageTag: a18ef613-6749-4127-a0a6-b66f37d82ca5
+		summarizeBy: none
+		sourceColumn: preferred_contact
+
+	column marketing_opt_in
+		dataType: string
+		lineageTag: 8b29c9ee-7c1d-459e-84fa-f4c5cb937637
+		summarizeBy: none
+		sourceColumn: marketing_opt_in
+
+	partition clients = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\data\clients.csv"), [Delimiter = ",", Columns = 8, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"client_id", type text}, {"gender", type text}, {"age_group", type text}, {"nationality", type text}, {"home_boutique_id", type text}, {"signup_date", type date}, {"preferred_contact", type text}, {"marketing_opt_in", type text}}, "en-US")
+				in
+				    Typed

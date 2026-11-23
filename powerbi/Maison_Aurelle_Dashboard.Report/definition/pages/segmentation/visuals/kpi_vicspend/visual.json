@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "kpi_vicspend",
+  "position": {
+    "x": 646,
+    "y": 80,
+    "z": 15000,
+    "width": 300,
+    "height": 100,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "Avg VIC Lifetime Spend"
+                }
+              },
+              "queryRef": "rfm.Avg VIC Lifetime Spend",
+              "nativeQueryRef": "Avg VIC Lifetime Spend"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average VIC lifetime spend'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

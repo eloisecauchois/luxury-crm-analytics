@@ -1,0 +1,79 @@
+product_id,product_name,category,collection,price_eur
+P001,Soleil Tote Bag,Leather Goods,Soleil,6430
+P002,Étoile Tote Bag,Leather Goods,Étoile,4970
+P003,Étoile Shoulder Bag,Leather Goods,Étoile,730
+P004,Riviera Shoulder Bag,Leather Goods,Riviera,5450
+P005,Monogram Mini Bag,Leather Goods,Monogram,5290
+P006,Héritage Mini Bag,Leather Goods,Héritage,2790
+P007,Héritage Clutch,Leather Goods,Héritage,3410
+P008,Monogram Clutch,Leather Goods,Monogram,5980
+P009,Héritage Travel Bag,Leather Goods,Héritage,2360
+P010,Soleil Travel Bag,Leather Goods,Soleil,2050
+P011,Étoile Wallet,Leather Goods,Étoile,530
+P012,Soleil Wallet,Leather Goods,Soleil,2670
+P013,Étoile Card Holder,Leather Goods,Étoile,1990
+P014,Soleil Card Holder,Leather Goods,Soleil,4690
+P015,Soleil Belt,Leather Goods,Soleil,4100
+P016,Héritage Belt,Leather Goods,Héritage,2750
+P017,Étoile Silk Dress,Ready-to-Wear,Étoile,4910
+P018,Héritage Silk Dress,Ready-to-Wear,Héritage,4840
+P019,Monogram Cashmere Coat,Ready-to-Wear,Monogram,3270
+P020,Monogram Cashmere Coat,Ready-to-Wear,Monogram,800
+P021,Héritage Tailored Blazer,Ready-to-Wear,Héritage,3130
+P022,Soleil Tailored Blazer,Ready-to-Wear,Soleil,4980
+P023,Monogram Knit Sweater,Ready-to-Wear,Monogram,3880
+P024,Nocturne Knit Sweater,Ready-to-Wear,Nocturne,2080
+P025,Soleil Silk Shirt,Ready-to-Wear,Soleil,3780
+P026,Riviera Silk Shirt,Ready-to-Wear,Riviera,2220
+P027,Étoile Trousers,Ready-to-Wear,Étoile,4150
+P028,Monogram Trousers,Ready-to-Wear,Monogram,860
+P029,Soleil Trench Coat,Ready-to-Wear,Soleil,2060
+P030,Soleil Trench Coat,Ready-to-Wear,Soleil,3700
+P031,Étoile Pumps,Shoes,Étoile,820
+P032,Nocturne Pumps,Shoes,Nocturne,1080
+P033,Riviera Loafers,Shoes,Riviera,1440
+P034,Nocturne Loafers,Shoes,Nocturne,1500
+P035,Nocturne Sneakers,Shoes,Nocturne,1110
+P036,Monogram Sneakers,Shoes,Monogram,1580
+P037,Soleil Ankle Boots,Shoes,Soleil,1370
+P038,Riviera Ankle Boots,Shoes,Riviera,1120
+P039,Soleil Sandals,Shoes,Soleil,810
+P040,Nocturne Sandals,Shoes,Nocturne,580
+P041,Monogram Ballerinas,Shoes,Monogram,1020
+P042,Étoile Ballerinas,Shoes,Étoile,1150
+P043,Soleil Gold Ring,Jewelry,Soleil,2020
+P044,Étoile Gold Ring,Jewelry,Étoile,17000
+P045,Riviera Diamond Earrings,Jewelry,Riviera,4970
+P046,Riviera Diamond Earrings,Jewelry,Riviera,8070
+P047,Héritage Bracelet,Jewelry,Héritage,16220
+P048,Étoile Bracelet,Jewelry,Étoile,27320
+P049,Nocturne Pendant Necklace,Jewelry,Nocturne,17240
+P050,Étoile Pendant Necklace,Jewelry,Étoile,19970
+P051,Héritage High Jewelry Necklace,Jewelry,Héritage,25740
+P052,Monogram High Jewelry Necklace,Jewelry,Monogram,16080
+P053,Soleil Automatic Watch,Watches,Soleil,32570
+P054,Soleil Automatic Watch,Watches,Soleil,14910
+P055,Riviera Ladies Watch,Watches,Riviera,13250
+P056,Riviera Ladies Watch,Watches,Riviera,17340
+P057,Étoile Chronograph,Watches,Étoile,33690
+P058,Soleil Chronograph,Watches,Soleil,35520
+P059,Héritage Diamond-set Watch,Watches,Héritage,30470
+P060,Étoile Diamond-set Watch,Watches,Étoile,17780
+P061,Nocturne Silk Scarf,Accessories,Nocturne,630
+P062,Nocturne Silk Scarf,Accessories,Nocturne,740
+P063,Héritage Sunglasses,Accessories,Héritage,820
+P064,Monogram Sunglasses,Accessories,Monogram,810
+P065,Monogram Cashmere Stole,Accessories,Monogram,390
+P066,Soleil Cashmere Stole,Accessories,Soleil,630
+P067,Nocturne Keyring,Accessories,Nocturne,290
+P068,Étoile Keyring,Accessories,Étoile,320
+P069,Nocturne Hat,Accessories,Nocturne,430
+P070,Étoile Hat,Accessories,Étoile,930
+P071,Nocturne Eau de Parfum,Fragrance & Beauty,Nocturne,290
+P072,Riviera Eau de Parfum,Fragrance & Beauty,Riviera,260
+P073,Soleil Scented Candle,Fragrance & Beauty,Soleil,400
+P074,Riviera Scented Candle,Fragrance & Beauty,Riviera,140
+P075,Nocturne Lipstick,Fragrance & Beauty,Nocturne,410
+P076,Nocturne Lipstick,Fragrance & Beauty,Nocturne,130
+P077,Héritage Perfume Set,Fragrance & Beauty,Héritage,350
+P078,Monogram Perfume Set,Fragrance & Beauty,Monogram,380

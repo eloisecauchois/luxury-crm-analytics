@@ -1,0 +1,181 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "tbl_segments",
+  "position": {
+    "x": 635,
+    "y": 195,
+    "z": 18000,
+    "width": 625,
+    "height": 215,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "displayName": "Segment",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "rfm.segment",
+              "nativeQueryRef": "segment"
+            },
+            {
+              "displayName": "Clients",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "Segment Clients"
+                }
+              },
+              "queryRef": "rfm.Segment Clients",
+              "nativeQueryRef": "Segment Clients"
+            },
+            {
+              "displayName": "% revenue",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "% of Revenue"
+                }
+              },
+              "queryRef": "rfm.% of Revenue",
+              "nativeQueryRef": "% of Revenue"
+            },
+            {
+              "displayName": "Avg spend",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "Avg Lifetime Spend"
+                }
+              },
+              "queryRef": "rfm.Avg Lifetime Spend",
+              "nativeQueryRef": "Avg Lifetime Spend"
+            },
+            {
+              "displayName": "Avg purchases",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "Avg Purchases"
+                }
+              },
+              "queryRef": "rfm.Avg Purchases",
+              "nativeQueryRef": "Avg Purchases"
+            },
+            {
+              "displayName": "Days since last buy",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "Avg Days Since Last Purchase"
+                }
+              },
+              "queryRef": "rfm.Avg Days Since Last Purchase",
+              "nativeQueryRef": "Avg Days Since Last Purchase"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "rfm"
+                  }
+                },
+                "Property": "% of Revenue"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segment profiles'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

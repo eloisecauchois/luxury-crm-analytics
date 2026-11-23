@@ -1,0 +1,78 @@
+table call_list
+	lineageTag: 70220581-82f3-4c28-b784-d6623379f092
+
+	measure 'Call List Clients' = COUNTROWS(call_list)
+		formatString: #,0
+		lineageTag: e0e881ae-0ed2-4ad5-9489-87f6a61dc577
+
+	measure 'Call List Value' = SUM(call_list[monetary_eur])
+		formatString: €#,0
+		lineageTag: 11394ad4-4acb-42f0-804c-3c68952ddd11
+
+	column client_id
+		dataType: string
+		lineageTag: 89dcb029-80c4-4e51-a942-769d1af57346
+		summarizeBy: none
+		sourceColumn: client_id
+
+	column nationality
+		dataType: string
+		lineageTag: bf48a7fd-22ed-48e5-ad00-ae2fd65bb8b6
+		summarizeBy: none
+		sourceColumn: nationality
+
+	column preferred_contact
+		dataType: string
+		lineageTag: e21411f6-4169-47a5-9cf5-9e1679f1aab8
+		summarizeBy: none
+		sourceColumn: preferred_contact
+
+	column home_boutique
+		dataType: string
+		lineageTag: bc76eccd-bec0-48be-930a-39ce7bfc67c9
+		summarizeBy: none
+		sourceColumn: home_boutique
+
+	column last_associate
+		dataType: string
+		lineageTag: 4ce5f7b6-9219-4c44-bd9f-95bb559f5546
+		summarizeBy: none
+		sourceColumn: last_associate
+
+	column monetary_eur
+		dataType: int64
+		formatString: €#,0
+		lineageTag: 845745af-c72e-4547-b82f-108ae6de2b10
+		summarizeBy: none
+		sourceColumn: monetary_eur
+
+	column frequency
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0b688c33-d198-4f48-8bc6-bb118222cd2f
+		summarizeBy: none
+		sourceColumn: frequency
+
+	column recency_days
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3d22bc28-6f5d-4ca6-8a4e-3b741113695d
+		summarizeBy: none
+		sourceColumn: recency_days
+
+	column last_purchase
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: f0c2190f-7fa1-4e08-863c-e1dd5dead4ec
+		summarizeBy: none
+		sourceColumn: last_purchase
+
+	partition call_list = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\outputs\call_list.csv"), [Delimiter = ",", Columns = 9, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"client_id", type text}, {"nationality", type text}, {"preferred_contact", type text}, {"home_boutique", type text}, {"last_associate", type text}, {"monetary_eur", Int64.Type}, {"frequency", Int64.Type}, {"recency_days", Int64.Type}, {"last_purchase", type date}}, "en-US")
+				in
+				    Typed

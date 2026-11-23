@@ -1,0 +1,44 @@
+table retention
+	lineageTag: 28f0d779-10e5-41a2-8e09-6593f3b2ef60
+
+	measure 'Retention Rate' = DIVIDE(SUM(retention[came_back]), SUM(retention[new_clients]))
+		formatString: 0.0%
+		lineageTag: 0ad15f0e-47b3-411b-b942-98b637d660fe
+
+	column first_year
+		dataType: string
+		lineageTag: 1a766b3f-600e-4784-92fb-f51df263f49e
+		summarizeBy: none
+		sourceColumn: first_year
+
+	column new_clients
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0c97008d-3a80-49eb-b72a-9c63a9c79c34
+		summarizeBy: none
+		sourceColumn: new_clients
+
+	column came_back
+		dataType: int64
+		formatString: #,0
+		lineageTag: a21461fe-6fde-470e-8bbe-89d26313f670
+		summarizeBy: none
+		sourceColumn: came_back
+
+	column retention_pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: d790ba58-75b3-4dab-84a9-2eb0860a4539
+		summarizeBy: none
+		sourceColumn: retention_pct
+
+	partition retention = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\outputs\retention_by_cohort.csv"), [Delimiter = ",", Columns = 4, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"first_year", type text}, {"new_clients", Int64.Type}, {"came_back", Int64.Type}, {"retention_pct", type number}}, "en-US"),
+				    Filtered = Table.SelectRows(Typed, each [first_year] <> "2026")
+				in
+				    Filtered

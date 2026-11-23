@@ -1,0 +1,37 @@
+table sales_associates
+	lineageTag: 2f8bef19-3068-4055-bcde-6ea3731d64e1
+
+	column associate_id
+		dataType: string
+		lineageTag: 1a5f922a-9a19-4251-8873-bc9b591f1054
+		summarizeBy: none
+		sourceColumn: associate_id
+
+	column associate_name
+		dataType: string
+		lineageTag: 4d31b5a3-0efe-43d6-8cef-de5c19cb74f7
+		summarizeBy: none
+		sourceColumn: associate_name
+
+	column boutique_id
+		dataType: string
+		lineageTag: e5fc17ef-f1fc-43f5-a300-9f8e243a24bf
+		summarizeBy: none
+		sourceColumn: boutique_id
+
+	column hire_date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 75702a0c-9435-459b-bcb5-6ff2b34f77c2
+		summarizeBy: none
+		sourceColumn: hire_date
+
+	partition sales_associates = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\data\sales_associates.csv"), [Delimiter = ",", Columns = 4, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"associate_id", type text}, {"associate_name", type text}, {"boutique_id", type text}, {"hire_date", type date}}, "en-US")
+				in
+				    Typed

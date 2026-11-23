@@ -1,0 +1,181 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "tbl_top",
+  "position": {
+    "x": 635,
+    "y": 425,
+    "z": 19000,
+    "width": 625,
+    "height": 280,
+    "tabOrder": 19000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "displayName": "Client",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "client_id"
+                }
+              },
+              "queryRef": "rfm.client_id",
+              "nativeQueryRef": "client_id"
+            },
+            {
+              "displayName": "Segment",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "rfm.segment",
+              "nativeQueryRef": "segment"
+            },
+            {
+              "displayName": "Lifetime spend",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "monetary_eur"
+                }
+              },
+              "queryRef": "rfm.monetary_eur",
+              "nativeQueryRef": "monetary_eur"
+            },
+            {
+              "displayName": "Purchases",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "frequency"
+                }
+              },
+              "queryRef": "rfm.frequency",
+              "nativeQueryRef": "frequency"
+            },
+            {
+              "displayName": "Days since last buy",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "recency_days"
+                }
+              },
+              "queryRef": "rfm.recency_days",
+              "nativeQueryRef": "recency_days"
+            },
+            {
+              "displayName": "Client since",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "rfm"
+                    }
+                  },
+                  "Property": "first_purchase"
+                }
+              },
+              "queryRef": "rfm.first_purchase",
+              "nativeQueryRef": "first_purchase"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "rfm"
+                  }
+                },
+                "Property": "monetary_eur"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Clients ranked by lifetime spend'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

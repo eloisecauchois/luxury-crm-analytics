@@ -1,0 +1,43 @@
+table products
+	lineageTag: 78822d4d-ee5f-41f6-a763-5a1b02fd1fbd
+
+	column product_id
+		dataType: string
+		lineageTag: 656b8464-583e-49a0-9bcb-89bbf84b469e
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column product_name
+		dataType: string
+		lineageTag: e996fb86-8e26-468b-99db-99b4ed85899e
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column category
+		dataType: string
+		lineageTag: caa4d6ae-86a6-4dd2-a128-910b34f61169
+		summarizeBy: none
+		sourceColumn: category
+
+	column collection
+		dataType: string
+		lineageTag: 843c6e67-d2b4-48c7-ba7d-5212e1b23748
+		summarizeBy: none
+		sourceColumn: collection
+
+	column price_eur
+		dataType: int64
+		formatString: €#,0
+		lineageTag: 7f34d387-a6c6-4d4d-ae51-b6e974219461
+		summarizeBy: none
+		sourceColumn: price_eur
+
+	partition products = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\data\products.csv"), [Delimiter = ",", Columns = 5, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"product_name", type text}, {"category", type text}, {"collection", type text}, {"price_eur", Int64.Type}}, "en-US")
+				in
+				    Typed

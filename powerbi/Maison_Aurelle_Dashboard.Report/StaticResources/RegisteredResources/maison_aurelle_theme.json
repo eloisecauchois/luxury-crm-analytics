@@ -1,0 +1,29 @@
+{
+  "name": "Maison Aurelle",
+  "dataColors": ["#2F5D9E", "#B8893B", "#14213D", "#8FA9CF", "#D9BF8C", "#77756F", "#5A87C8", "#A67C35"],
+  "background": "#FCFCFB",
+  "foreground": "#1B1B1B",
+  "tableAccent": "#B8893B",
+  "good": "#0A7D0A",
+  "neutral": "#B8893B",
+  "bad": "#D03B3B",
+  "textClasses": {
+    "title": { "fontFace": "Georgia", "fontSize": 13, "color": "#14213D" },
+    "header": { "fontFace": "Georgia", "fontSize": 12, "color": "#14213D" },
+    "callout": { "fontFace": "Georgia", "fontSize": 28, "color": "#14213D" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#52514E" }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F6F3EE" } }, "transparency": 0 }]
+      }
+    },
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#FCFCFB" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#E3E0DA" } }, "radius": 4 }]
+      }
+    }
+  }
+}

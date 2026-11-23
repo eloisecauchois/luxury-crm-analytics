@@ -1,0 +1,23 @@
+relationship d7ec0dc3-ccc2-4e7d-88ca-06859465f4b7
+	fromColumn: transactions.client_id
+	toColumn: clients.client_id
+
+relationship bd5c3f2e-87c8-47a2-97d8-043295461953
+	fromColumn: transactions.product_id
+	toColumn: products.product_id
+
+relationship 64f2a3c0-ef2c-43a7-85cb-c5abdd99dbf0
+	fromColumn: transactions.boutique_id
+	toColumn: boutiques.boutique_id
+
+relationship 2e9755b1-4a8f-4719-b2c1-bd9a570a5398
+	fromColumn: transactions.associate_id
+	toColumn: sales_associates.associate_id
+
+relationship 97755158-4fd1-49e0-898c-01fd6522157f
+	fromColumn: rfm.client_id
+	toColumn: clients.client_id
+
+relationship 5b8894ea-7c56-4025-b0ec-4c80b2ead6be
+	fromColumn: call_list.client_id
+	toColumn: clients.client_id

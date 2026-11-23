@@ -1,0 +1,100 @@
+table transactions
+	lineageTag: 1545f33d-e979-4f54-9d54-c86c8816628c
+
+	measure 'Total Revenue' = SUM(transactions[amount_eur])
+		formatString: €#,0
+		lineageTag: d0b2150f-4496-457a-927a-3e2222bb364a
+
+	measure 'Active Clients' = DISTINCTCOUNT(transactions[client_id])
+		formatString: #,0
+		lineageTag: 20bf6ef5-9d6c-4120-bc7d-d189f930a781
+
+	measure 'Number of Transactions' = COUNTROWS(transactions)
+		formatString: #,0
+		lineageTag: f999c681-559e-4279-8816-68f6c81bed5e
+
+	measure 'Average Ticket' = DIVIDE([Total Revenue], [Number of Transactions])
+		formatString: €#,0
+		lineageTag: 63333ca7-53ac-4383-afae-6edd9a717edc
+
+	column transaction_id
+		dataType: string
+		lineageTag: 99148321-6af9-4077-9c73-5dad9d4dd68b
+		summarizeBy: none
+		sourceColumn: transaction_id
+
+	column client_id
+		dataType: string
+		lineageTag: 046912d3-91c0-46c1-b3ea-1bf4377b7914
+		summarizeBy: none
+		sourceColumn: client_id
+
+	column transaction_date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: d9f76847-dd79-4d07-bbdc-b68eca9e46ab
+		summarizeBy: none
+		sourceColumn: transaction_date
+
+	column boutique_id
+		dataType: string
+		lineageTag: c8e91acc-61ca-4bc5-90ea-867e83e93e9f
+		summarizeBy: none
+		sourceColumn: boutique_id
+
+	column associate_id
+		dataType: string
+		lineageTag: 90f67c1d-38a6-4822-be58-a9bda4ee0222
+		summarizeBy: none
+		sourceColumn: associate_id
+
+	column product_id
+		dataType: string
+		lineageTag: 19c33e44-0174-4278-9ebd-9e529891a4a9
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c712692-37f4-4a13-8d49-99b87ecc70df
+		summarizeBy: sum
+		sourceColumn: quantity
+
+	column amount_eur
+		dataType: int64
+		formatString: €#,0
+		lineageTag: 00d730e5-cd0a-4e1d-a078-14bf0b7d96c9
+		summarizeBy: sum
+		sourceColumn: amount_eur
+
+	column channel
+		dataType: string
+		lineageTag: 8306d398-98f5-447d-98cf-a4c3e7596e16
+		summarizeBy: none
+		sourceColumn: channel
+
+	column month
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: 20be9da8-ef1e-45a1-adca-22aa19ecb570
+		summarizeBy: none
+		sourceColumn: month
+
+	column year
+		dataType: string
+		lineageTag: 72e7506c-dcd7-4f61-9555-2e8a6cdf4637
+		summarizeBy: none
+		sourceColumn: year
+
+	partition transactions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\data\transactions.csv"), [Delimiter = ",", Columns = 9, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"transaction_id", type text}, {"client_id", type text}, {"transaction_date", type date}, {"boutique_id", type text}, {"associate_id", type text}, {"product_id", type text}, {"quantity", Int64.Type}, {"amount_eur", Int64.Type}, {"channel", type text}}, "en-US"),
+				    Step1 = Table.AddColumn(Typed, "month", each Date.StartOfMonth([transaction_date]), type date),
+				    Step2 = Table.AddColumn(Step1, "year", each Text.From(Date.Year([transaction_date])), type text)
+				in
+				    Step2

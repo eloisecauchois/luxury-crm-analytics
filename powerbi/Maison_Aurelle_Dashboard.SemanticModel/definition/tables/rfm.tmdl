@@ -1,0 +1,132 @@
+table rfm
+	lineageTag: 04472d80-d5ae-449c-9f54-55f510d8e9ca
+
+	measure 'Segment Clients' = COUNTROWS(rfm)
+		formatString: #,0
+		lineageTag: 001a8d01-886e-4a89-9ac6-a4bc6e5be4c6
+
+	measure '% of Clients' = DIVIDE([Segment Clients], CALCULATE([Segment Clients], ALL(rfm[segment])))
+		formatString: 0.0%
+		lineageTag: c589ee7a-9950-4fda-99ca-2aba59c9926f
+
+	measure 'Segment Revenue' = SUM(rfm[monetary_eur])
+		formatString: €#,0
+		lineageTag: 2c6559ef-373d-433d-88c0-6087c0cdaa8e
+
+	measure '% of Revenue' = DIVIDE([Segment Revenue], CALCULATE([Segment Revenue], ALL(rfm[segment])))
+		formatString: 0.0%
+		lineageTag: 3463cf3b-7d98-48e1-a05e-2ac9ee460082
+
+	measure 'Avg Lifetime Spend' = AVERAGE(rfm[monetary_eur])
+		formatString: €#,0
+		lineageTag: 83c6686e-26af-47fd-82cf-57c0fb0404af
+
+	measure 'Avg Purchases' = AVERAGE(rfm[frequency])
+		formatString: 0.0
+		lineageTag: 315d6513-8e2c-4c65-9bdc-7241aec33117
+
+	measure 'Avg Days Since Last Purchase' = AVERAGE(rfm[recency_days])
+		formatString: #,0
+		lineageTag: 85f1b558-3f0b-4525-a4d7-b644d80d974d
+
+	measure 'VIC Clients' = CALCULATE([Segment Clients], rfm[segment] = "VIC (Champions)")
+		formatString: #,0
+		lineageTag: dd92c1dd-f9b7-4add-9c3a-475bb708f62f
+
+	measure 'VIC Share of Revenue' = CALCULATE([% of Revenue], rfm[segment] = "VIC (Champions)")
+		formatString: 0.0%
+		lineageTag: 2a5bd143-225a-4802-9f0d-25f0685b0583
+
+	measure 'Avg VIC Lifetime Spend' = CALCULATE([Avg Lifetime Spend], rfm[segment] = "VIC (Champions)")
+		formatString: €#,0
+		lineageTag: 9d1eadce-194d-4109-a639-040161f77bf8
+
+	measure 'Loyal Clients' = CALCULATE([Segment Clients], rfm[segment] = "Loyal")
+		formatString: #,0
+		lineageTag: 3ed334a3-49e6-4f01-a006-d1bab3c7baed
+
+	measure 'At Risk Clients' = CALCULATE([Segment Clients], rfm[segment] = "At Risk")
+		formatString: #,0
+		lineageTag: d16cdee5-03b3-4793-a9ef-6226783e1f21
+
+	measure 'At Risk Past Spend' = CALCULATE([Segment Revenue], rfm[segment] = "At Risk")
+		formatString: €#,0
+		lineageTag: e689b467-bfa1-4816-9a34-048549a0154b
+
+	column client_id
+		dataType: string
+		lineageTag: 731fa4ff-5e52-4233-b0dc-7e82f58004bf
+		summarizeBy: none
+		sourceColumn: client_id
+
+	column recency_days
+		dataType: int64
+		formatString: #,0
+		lineageTag: d3d51b0e-2e64-4bf8-a5f1-27f35cf1acc1
+		summarizeBy: none
+		sourceColumn: recency_days
+
+	column frequency
+		dataType: int64
+		formatString: #,0
+		lineageTag: 419b0f8c-a27d-45cc-9a96-02bba5a443c1
+		summarizeBy: none
+		sourceColumn: frequency
+
+	column monetary_eur
+		dataType: int64
+		formatString: €#,0
+		lineageTag: 1c066054-af3c-4d82-9601-927e80811d9a
+		summarizeBy: none
+		sourceColumn: monetary_eur
+
+	column first_purchase
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 1253e944-e87c-4414-ade9-342f1b99e7f6
+		summarizeBy: none
+		sourceColumn: first_purchase
+
+	column last_purchase
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 154a4672-59e2-4ea2-a7b6-9908a67389f1
+		summarizeBy: none
+		sourceColumn: last_purchase
+
+	column r_score
+		dataType: int64
+		formatString: 0
+		lineageTag: b48c43e9-f9e0-45d5-b476-0a5782aaf992
+		summarizeBy: none
+		sourceColumn: r_score
+
+	column f_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 363ff123-8cf1-4ef1-be48-3640c96f6979
+		summarizeBy: none
+		sourceColumn: f_score
+
+	column m_score
+		dataType: int64
+		formatString: 0
+		lineageTag: c0123d7c-6d61-4e3d-9340-994a4b74f422
+		summarizeBy: none
+		sourceColumn: m_score
+
+	column segment
+		dataType: string
+		lineageTag: e9b0a810-cabb-43e1-96c0-22197c006d18
+		summarizeBy: none
+		sourceColumn: segment
+
+	partition rfm = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\outputs\rfm.csv"), [Delimiter = ",", Columns = 10, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"client_id", type text}, {"recency_days", Int64.Type}, {"frequency", Int64.Type}, {"monetary_eur", Int64.Type}, {"first_purchase", type date}, {"last_purchase", type date}, {"r_score", Int64.Type}, {"f_score", Int64.Type}, {"m_score", Int64.Type}, {"segment", type text}}, "en-US")
+				in
+				    Typed

@@ -1,0 +1,211 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "tbl_calls",
+  "position": {
+    "x": 20,
+    "y": 460,
+    "z": 28000,
+    "width": 1240,
+    "height": 245,
+    "tabOrder": 28000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "displayName": "Client",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "call_list"
+                    }
+                  },
+                  "Property": "client_id"
+                }
+              },
+              "queryRef": "call_list.client_id",
+              "nativeQueryRef": "client_id"
+            },
+            {
+              "displayName": "Nationality",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "call_list"
+                    }
+                  },
+                  "Property": "nationality"
+                }
+              },
+              "queryRef": "call_list.nationality",
+              "nativeQueryRef": "nationality"
+            },
+            {
+              "displayName": "Contact via",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "call_list"
+                    }
+                  },
+                  "Property": "preferred_contact"
+                }
+              },
+              "queryRef": "call_list.preferred_contact",
+              "nativeQueryRef": "preferred_contact"
+            },
+            {
+              "displayName": "Boutique",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "call_list"
+                    }
+                  },
+                  "Property": "home_boutique"
+                }
+              },
+              "queryRef": "call_list.home_boutique",
+              "nativeQueryRef": "home_boutique"
+            },
+            {
+              "displayName": "Sales associate",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "call_list"
+                    }
+                  },
+                  "Property": "last_associate"
+                }
+              },
+              "queryRef": "call_list.last_associate",
+              "nativeQueryRef": "last_associate"
+            },
+            {
+              "displayName": "Lifetime spend",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "call_list"
+                    }
+                  },
+                  "Property": "monetary_eur"
+                }
+              },
+              "queryRef": "call_list.monetary_eur",
+              "nativeQueryRef": "monetary_eur"
+            },
+            {
+              "displayName": "Purchases",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "call_list"
+                    }
+                  },
+                  "Property": "frequency"
+                }
+              },
+              "queryRef": "call_list.frequency",
+              "nativeQueryRef": "frequency"
+            },
+            {
+              "displayName": "Last purchase",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "call_list"
+                    }
+                  },
+                  "Property": "last_purchase"
+                }
+              },
+              "queryRef": "call_list.last_purchase",
+              "nativeQueryRef": "last_purchase"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "call_list"
+                  }
+                },
+                "Property": "monetary_eur"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Call list: At-Risk high spenders who accept marketing'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

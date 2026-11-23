@@ -1,0 +1,7 @@
+segment,clients,pct_clients,revenue_eur,pct_revenue,avg_recency_days,avg_frequency,avg_spend_eur
+VIC (Champions),315,9.8,41691173,49.9,48,18.1,132353
+Loyal,1136,35.5,21868370,26.2,141,5.1,19250
+At Risk,469,14.7,16386371,19.6,769,6.9,34939
+Dormant,811,25.3,2065871,2.5,915,1.1,2547
+Needs Attention,276,8.6,870967,1,321,1.2,3156
+New / Promising,193,6,667728,0.8,85,1.4,3460

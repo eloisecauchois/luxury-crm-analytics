@@ -1,0 +1,36 @@
+table cross_sell
+	lineageTag: 8520b834-fdef-422f-95b8-b94eb9df13f5
+
+	measure 'Share of Leather Buyers' = DIVIDE(SUM(cross_sell[pct_of_leather_buyers]), 100)
+		formatString: 0.0%
+		lineageTag: 5366f3df-38fd-4f7c-b214-0dedbfa8390a
+
+	column also_bought
+		dataType: string
+		lineageTag: fa67794d-5130-4a69-890d-62ccd364198c
+		summarizeBy: none
+		sourceColumn: also_bought
+
+	column clients
+		dataType: int64
+		formatString: #,0
+		lineageTag: 234608d9-b752-464c-9bb4-a2531db0b9cf
+		summarizeBy: none
+		sourceColumn: clients
+
+	column pct_of_leather_buyers
+		dataType: double
+		formatString: 0.0
+		lineageTag: 15363304-2de8-4c0a-b2eb-5a85a9b2bd17
+		summarizeBy: none
+		sourceColumn: pct_of_leather_buyers
+
+	partition cross_sell = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ecauc\OneDrive\Documents\Luxury CRM Project\luxury-crm-project\outputs\cross_sell_leather.csv"), [Delimiter = ",", Columns = 3, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"also_bought", type text}, {"clients", Int64.Type}, {"pct_of_leather_buyers", type number}}, "en-US")
+				in
+				    Typed

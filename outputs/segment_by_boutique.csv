@@ -1,0 +1,49 @@
+boutique,segment,clients
+Cannes,At Risk,53
+Cannes,Dormant,71
+Cannes,Loyal,107
+Cannes,Needs Attention,26
+Cannes,New / Promising,12
+Cannes,VIC (Champions),29
+Dubai,At Risk,39
+Dubai,Dormant,99
+Dubai,Loyal,116
+Dubai,Needs Attention,23
+Dubai,New / Promising,27
+Dubai,VIC (Champions),35
+London,At Risk,78
+London,Dormant,105
+London,Loyal,158
+London,Needs Attention,42
+London,New / Promising,15
+London,VIC (Champions),50
+Milan,At Risk,60
+Milan,Dormant,90
+Milan,Loyal,135
+Milan,Needs Attention,33
+Milan,New / Promising,33
+Milan,VIC (Champions),41
+Monaco,At Risk,68
+Monaco,Dormant,121
+Monaco,Loyal,162
+Monaco,Needs Attention,41
+Monaco,New / Promising,20
+Monaco,VIC (Champions),39
+New York,At Risk,51
+New York,Dormant,111
+New York,Loyal,139
+New York,Needs Attention,24
+New York,New / Promising,30
+New York,VIC (Champions),40
+Online,At Risk,21
+Online,Dormant,49
+Online,Loyal,74
+Online,Needs Attention,19
+Online,New / Promising,14
+Online,VIC (Champions),28
+Paris,At Risk,99
+Paris,Dormant,165
+Paris,Loyal,245
+Paris,Needs Attention,68
+Paris,New / Promising,42
+Paris,VIC (Champions),53
