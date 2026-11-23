@@ -112,4 +112,9 @@ Every chart title states the insight, not just the metric.
 
 ---
 
+<p align="center">
+  <b>Eloïse Cauchois</b> · MSc Luxury Management, Monaco · BSc Hospitality &amp; Tourism Management, UMass Amherst<br>
+  <a href="https://www.linkedin.com/in/elo%C3%AFse-cauchois">LinkedIn</a>
+</p>
+
 <p align="center"><sub>Maison Aurelle is a fictional brand. All data is synthetic and was created for this portfolio project.</sub></p>
