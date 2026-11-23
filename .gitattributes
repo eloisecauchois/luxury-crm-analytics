@@ -1,0 +1,4 @@
+# Show the project's real languages on GitHub (SQL, not HTML)
+*.html linguist-detectable=false
+*.json linguist-detectable=false
+*.sql linguist-detectable=true linguist-language=SQL
